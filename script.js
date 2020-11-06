@@ -1,16 +1,16 @@
-var createpolitician= function(name)
+var createPolitician= function(name)
 {
   var politician= {};
-  politision.name=""
-  politision.electionResults= null;
-  politision.totalVotes=0; 
+  politician.name=""
+  politician.electionResults= null;
+  politician.totalVotes=0; 
   
   return politician;
   
 };
 
-var omer = createpolitician("omer Howes");
-var miray = creatpolitician("miray Howes");
+var omer = createPolitician("omer Howes");
+var miray = creaetPolitician("miray Howes");
 
 omer.electionResults=[5,1,7,2,33,6,4,2,1,14,8,3,1,11,11,0,5,3,3,3,7,4,8,9,3,7,2,2,4,2,8,3,15,15,2,12,0,4,13,1,3,2,8,21,3,2,11,1,3,7,2]
 miray.electionResults=[4,2,4,4,22,3,3,1,2,15,8,1,3,9,0,6,1,5,5,1,3,7,8,1,3,3,1,3,2,2,6,2,14,0,1,6,7,3,7,3,6,1,3,17,3,1,2,11,2,3,1]
@@ -44,7 +44,7 @@ if (omer.totalVotes >miray.totalVotes){
 console.log("AND THE WINNER IS..." + winner + "!!!");
 
 var createPolitician = function(name.partyColor){
-  polotician.partyColor=partyColor;
+  politician.partyColor=partyColor;
   return politician;
 }
 
@@ -81,7 +81,7 @@ if (theStates[state].winner === null){
 } else {
     winnersName.innerText = theStates[state].winner.name;
 } 
-  
+}
 
 
 var stateWinner= theStates[state];
