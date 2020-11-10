@@ -39,6 +39,7 @@ header {
   font: 16px/28px 'Open Sans', Helvetica, Arial, sans-serif;
   color: #454545;
 }
+
 #stateResults, #countryResults {
   border-collapse: collapse;
   background-color: #f2f2f2;

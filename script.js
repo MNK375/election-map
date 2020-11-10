@@ -1,12 +1,24 @@
-var createPolitician= function(name)
-{
+var createPolitician= function(name, partyColor){
+
   var politician= {};
   politician.name="";
   politician.electionResults= null;
   politician.totalVotes=0; 
-  
-  return politician;  
+  politician.partyColor = partyColor;
+  this.totalVotes = 0;
+
+  politician.tallyUpTotalVotes = function(){             
+    for (var i = 0; i < this.electionResults.length; i++){
+        this.totalVotes = this.totalVotes + this.electionResults[i]; 
+omer.tallyUpTotalVotes();
+miray.tallyUpTotalVotes();
+    }  
+}
+    return politician;  
 };
+
+console.log("omer's color is: " + omer.partyColor);
+console.log("miray's color is: " + miray.partyColor);
 
 var omer = createPolitician("Omer Howes", [245, 141, 136]);
 var miray = createPolitician("Miray Howes", [132, 17, 11]);
@@ -23,28 +35,7 @@ miray.electionResults[4]=38;
 
 omer.electionResults[43]=11;
 miray.electionResults[43]=27;
-
-console.log(jane.electionResults);
-console.log(betsy.electionResults);
-
-politician.tallyUpTotalVotes = function(){
-
-      
-       this.totalVotes = 0;
-      
-      for (var i = 0; i < this.electionResults.length; i++){
-          this.totalVotes = this.totalVotes + this.electionResults[i];
-      }
-  
-  };
-
-  flo.tallyUpTotalVotes();
-jane.tallyUpTotalVotes();
  
-//console log total votes
-console.log(flo.totalVotes);
-console.log(jane.totalVotes);
-
 var winner="???";
 
 if (omer.totalVotes  > miray.totalVotes){
@@ -55,73 +46,25 @@ if (omer.totalVotes  > miray.totalVotes){
   winner=miray.name;
 }else{
   winnter = "DRAW.";
-}
-  
-console.log("AND THE WINNER IS..." + winner + "!!!");
-
-console.log("Omer's color is" + "Omer.partyColor");
-console.log("Miray's color is" + "Miray.partyColor");
-
-var createPolitician = function(name, partyColor){
- 
-  // add new property for the party color
-  politician.partyColor = partyColor;
- 
-  //...the rest of your factory function code goes here
- 
-  return politician;
-}
- 
-// console messages to make sure the property is assigned correctly
-console.log("Omer's color is: " + omer.partyColor);
-console.log("Miray's color is: " + miray.partyColor);
-            
-
+} 
+    
 var setStateResults=function(state){
 
   theStates[state].winner = null;
 
-if (omer.electionResult[state] > miray.electionResults[state])
-    {
-  theStates[state].winner = omer;
-} else if
- (omer.electionResult[state] < miray.electionResults[state]){
-  theStates[state].winner = miray;
-}
-  
-  stateName.innerText = theStates[state].nameFull;
-abbrev.innerText = "(" +theStates[state].nameAbbrev + ")";
- 
-candidate1Name.innerText = omer.name;
-candidate2Name.innerText = miray.name;
- 
-candidate1Results.innerText = omer.electionResults[state];
-candidate2Results.innerText = miray.electionResults[state];
- 
-if (theStates[state].winner === null){
-    winnersName.innerText = "DRAW";
-} else {
-    winnersName.innerText = theStates[state].winner.name;
-} 
-}
-
-
-var stateWinner= theStates[state].winner;
-
-if (stateWinner!= null) {
-  theStates[state].rgbcolor = stateWinner.partyColor;
-} else {
-  theStates[state].rgbColor = [11, 32, 57];    
+  if (omer.electionResult[state] > miray.electionResults[state])
+      {
+    theStates[state].winner = omer;
+  } else if
+   (omer.electionResult[state] < miray.electionResults[state]){
+    theStates[state].winner = miray;
   }
-  
-  var countryInfoTable = document.getElementById('cuntryResults');
-  var row = countryInfoTable.children[0].children[0];
-  
-row.children[0].innerText = omer.name;
-row.children[1].innerText = omer.totalVotes;
-row.children[2].innerText = miray.name;
-row.children[3].innerText = miray.totalVotes;
-row.children[5].innerText = winner;
+   
+  if (theStates[state].winner === null){
+      winnersName.innerText = "DRAW";
+  } else {
+      winnersName.innerText = theStates[state].winner.name;
+  }
 
   var stateInfoTable= document.getElementById('stateResults');                                   
   var header = stateInfortable.children[0];
@@ -133,19 +76,31 @@ row.children[5].innerText = winner;
   var candidate1Results= body.children[0].children[1];
   var candidate2Results= body.children[1].children[1];                                
   var winnersName = body.children[2].children[1];
-  
 
-stateName.innerText = theStates[state].nameFull;
-abbrev.innerText = "(" +theStates[state].nameAbbrev + ")";
- 
-candidate1Name.innerText = omer.name;
-candidate2Name.innerText = miray.name;
- 
-candidate1Results.innerText = omer.electionResults[state];
-candidate2Results.innerText = miray.electionResults[state];
- 
-if (theStates[state].winner === null){
-    winnersName.innerText = "DRAW";
+  stateName.innerText = theStates[state].nameFull;
+  abbrev.innerText = "(" +theStates[state].nameAbbrev + ")";
+   
+  candidate1Name.innerText = omer.name;
+  candidate2Name.innerText = miray.name;
+   
+  candidate1Results.innerText = omer.electionResults[state];
+  candidate2Results.innerText = miray.electionResults[state];
+
+  var stateWinner= theStates[state].winner;
+
+if (stateWinner!= null) {
+  theStates[state].rgbcolor = stateWinner.partyColor;
 } else {
-    winnersName.innerText = theStates[state].winner.name;
-}
+  theStates[state].rgbColor = [11, 32, 57];    
+  }
+};
+  
+  var countryInfoTable = document.getElementById('cuntryResults');
+  var row = countryInfoTable.children[0].children[0];
+  
+row.children[0].innerText = omer.name;
+row.children[1].innerText = omer.totalVotes;
+row.children[2].innerText = miray.name;
+row.children[3].innerText = miray.totalVotes;
+row.children[5].innerText = winner;
+
